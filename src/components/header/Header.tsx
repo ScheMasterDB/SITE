@@ -24,7 +24,7 @@ export default function Header() {
   const [language, setLanguage] = useState("pt");
 
   return (
-    <header className="bg-primary text-white flex items-center pr-20 h-16 justify-between shadow-md">
+    <header className="bg-primary text-white flex items-center pr-20 h-24 justify-between  sticky top-0 left-0 w-full z-10">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
           <Image
@@ -34,22 +34,22 @@ export default function Header() {
             height={100}
             className="rounded-full"
           />
-          <h1 className="text-2xl text-secondary ">SchemasterDB</h1>
+          <h1 className="text-2xl text-secondary">SchemasterDB</h1>
         </Link>
       </div>
 
-      <Breadcrumb className="flex justify-around text-[20px] font-bold w-1/2 ">
+      <Breadcrumb className="flex justify-around text-[20px] font-bold w-1/2">
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Início</BreadcrumbLink>
+          <BreadcrumbLink href="#home">Início</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard">Funcionalidades</BreadcrumbLink>
+          <BreadcrumbLink href="#funcionalidades">Funcionalidades</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard">Sobre</BreadcrumbLink>
+          <BreadcrumbLink href="#sobre">Sobre</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard">Integrantes</BreadcrumbLink>
+          <BreadcrumbLink href="#integrantes">Integrantes</BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
 
@@ -57,7 +57,7 @@ export default function Header() {
         <DropdownMenuTrigger asChild>
           <Button
             variant="outline"
-            className="bg-primary text-white border-secondary "
+            className="bg-primary text-white border-secondary"
           >
             <MdLanguage /> {language.toUpperCase()}
           </Button>
