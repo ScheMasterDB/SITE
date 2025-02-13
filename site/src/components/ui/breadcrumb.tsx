@@ -9,14 +9,7 @@ const Breadcrumb = React.forwardRef<
   React.ComponentPropsWithoutRef<"nav"> & {
     separator?: React.ReactNode
   }
->(({ className, ...props }, ref) => (
-  <nav
-    ref={ref}
-    aria-label="breadcrumb"
-    className={cn("bg-[#D4D4D4] p-2 rounded-md", className)}
-    {...props}
-  />
-))
+>(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />)
 Breadcrumb.displayName = "Breadcrumb"
 
 const BreadcrumbList = React.forwardRef<
@@ -26,7 +19,7 @@ const BreadcrumbList = React.forwardRef<
   <ol
     ref={ref}
     className={cn(
-      "flex flex-wrap items-center gap-2 text-sm text-[#FFFFFF]",
+      "flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5",
       className
     )}
     {...props}
@@ -38,7 +31,11 @@ const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn("inline-flex items-center gap-2", className)} {...props} />
+  <li
+    ref={ref}
+    className={cn("inline-flex items-center gap-1.5", className)}
+    {...props}
+  />
 ))
 BreadcrumbItem.displayName = "BreadcrumbItem"
 
@@ -53,10 +50,7 @@ const BreadcrumbLink = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn(
-        "text-[#15242B] transition-colors hover:text-[#E56024] font-medium",
-        className
-      )}
+      className={cn("transition-colors hover:text-secondary", className)}
       {...props}
     />
   )
@@ -72,7 +66,7 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn("font-bold text-[#38A169]", className)}
+    className={cn("font-normal text-foreground", className)}
     {...props}
   />
 ))
@@ -86,7 +80,7 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn("[&>svg]:w-4 [&>svg]:h-4 text-[#D69E2E]", className)}
+    className={cn("[&>svg]:w-3.5 [&>svg]:h-3.5", className)}
     {...props}
   >
     {children ?? <ChevronRight />}
@@ -101,17 +95,14 @@ const BreadcrumbEllipsis = ({
   <span
     role="presentation"
     aria-hidden="true"
-    className={cn(
-      "flex h-9 w-9 items-center justify-center text-[#4A5568] bg-[#2C7A7B] rounded-md",
-      className
-    )}
+    className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
   >
     <MoreHorizontal className="h-4 w-4" />
     <span className="sr-only">More</span>
   </span>
 )
-BreadcrumbEllipsis.displayName = "BreadcrumbEllipsis"
+BreadcrumbEllipsis.displayName = "BreadcrumbElipssis"
 
 export {
   Breadcrumb,
