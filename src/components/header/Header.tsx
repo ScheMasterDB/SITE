@@ -24,7 +24,7 @@ export default function Header() {
   const [language, setLanguage] = useState("pt");
 
   return (
-    <header className="bg-primary text-white flex items-center pr-20 h-24 justify-between  sticky top-0 left-0 w-full z-10">
+    <header className="bg-primary text-white flex items-center pr-20 h-16 justify-between  sticky top-0 left-0 w-full z-10">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
           <Image
@@ -38,7 +38,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <Breadcrumb className="flex justify-around text-[20px] font-bold w-1/2">
+      <Breadcrumb className="flex justify-around text-[20px] w-1/2">
         <BreadcrumbItem>
           <BreadcrumbLink href="#home">Início</BreadcrumbLink>
         </BreadcrumbItem>
